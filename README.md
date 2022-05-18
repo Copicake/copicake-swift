@@ -2,9 +2,8 @@
 
 🍰 Copicake, a data-driven image generating service to let you generate any social media material with just ONE CLICK.
 
-🔗 Website: https://copicake.com/
-
-📘 Official API Docs: https://docs.copicake.com/
+- 🔗 Website: https://copicake.com/
+- 📘 Official API Docs: https://docs.copicake.com/
 
 # Installations
 
