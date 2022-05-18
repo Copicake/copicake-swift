@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "copicake-swift"
   spec.version      = "0.0.1"
-  spec.summary      = "A short description of copicake-swift."
+  spec.summary      = "Copicake Swift Library"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+    This library is a wrapper around the Copicake API and you can integrate it with your iOS or OS X app to generate any images on the fly.
                    DESC
 
   spec.homepage     = "https://github.com/copicake/copicake-swift"
