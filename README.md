@@ -29,4 +29,74 @@ dependencies: [
 
 # Usage
 
-...tbc
+## Initialization
+
+```swift
+let copicake = Copicake(
+  CopicakeInitConfig(apiKey: "")
+)
+```
+
+## Create an Image
+
+```swift
+copicake.image.create([
+  "template_id": "YOU_TEMPLATE_ID",
+  "changes": [
+    [
+      "name": "text-9so09m",
+      "text": "hello world",
+      "color": "#ff0000"
+    ],
+    [
+      "name": "image-yeavh7",
+      "src": "https://your_website.com/test.png"
+    ]
+  ],
+  "options": [
+    "webhook_url": "https://your_website.com/webhook_url"
+  ]
+]) { error, rendering in
+  if error != nil {
+    debugPrint(error)
+  }
+  else {
+    debugPrint(rendering)
+  }
+}
+```
+
+## Get an Image
+
+```swift
+let renderingId = "YOUR_RENDERING_ID";
+
+copicake.image.get(renderingId) { error, rendering in
+  if error != nil {
+    debugPrint(error)
+  }
+  else {
+    debugPrint(rendering)
+  }
+}
+```
+
+## Get an image (long polling)
+
+```swfit
+let renderingId = "YOUR_RENDERING_ID";
+
+copicake.image.getUntilFinished(renderingId) { error, rendering in
+  if error != nil {
+    debugPrint(error)
+  }
+  else {
+    if rendering?.status == "success" {
+      // do something
+    }
+    else if rendering?.status == "failed" {
+      // do something
+    }
+  }
+}
+```
