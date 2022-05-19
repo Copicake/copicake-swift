@@ -9,4 +9,8 @@ import Foundation
 
 public struct CopicakeInitConfig {
   public let apiKey: String
+
+  public init(apiKey: String = "") {
+    self.apiKey = apiKey
+  }
 }
