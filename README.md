@@ -83,7 +83,7 @@ copicake.image.get(renderingId) { error, rendering in
 
 ## Get an image (long polling)
 
-```swfit
+```swift
 let renderingId = "YOUR_RENDERING_ID";
 
 copicake.image.getUntilFinished(renderingId) { error, rendering in
