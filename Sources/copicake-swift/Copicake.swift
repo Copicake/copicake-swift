@@ -5,8 +5,8 @@ public final class Copicake {
 
   public let image: CopicakeImage
 
-  public init(_ apiKey: String) {
-    self.apiKey = apiKey
+  public init(_ config: CopicakeInitConfig) {
+    self.apiKey = config.apiKey
 
     // alias
     self.image = CopicakeImage(apiKey)

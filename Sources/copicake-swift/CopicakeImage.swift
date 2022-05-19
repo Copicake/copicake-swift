@@ -32,7 +32,7 @@ public class CopicakeImage {
       encoding: JSONEncoding.default,
       headers: self.getHeaders()
     )
-    .responseDecodable(of: Rendering.self) { response in
+    .responseDecodable(of: RenderingResponse.self) { response in
       if response.error != nil {
         completion(response.error?.localizedDescription, nil)
       }
@@ -40,7 +40,7 @@ public class CopicakeImage {
         completion(response.value?.error!, nil)
       }
       else {
-        completion(nil, response.value)
+        completion(nil, response.value?.data)
       }
     }
   }
@@ -55,7 +55,7 @@ public class CopicakeImage {
       encoding: JSONEncoding.default,
       headers: self.getHeaders()
     )
-    .responseDecodable(of: Rendering.self) { response in
+    .responseDecodable(of: RenderingResponse.self) { response in
       if response.error != nil {
         completion(response.error?.localizedDescription, nil)
       }
@@ -63,7 +63,7 @@ public class CopicakeImage {
         completion(response.value?.error!, nil)
       }
       else {
-        completion(nil, response.value)
+        completion(nil, response.value?.data)
       }
     }
   }
@@ -74,7 +74,7 @@ public class CopicakeImage {
     }
     else {
       self.get(id) { error, rendering in
-        if error != nil || rendering?.data.status == "processing" {
+        if error != nil || rendering?.status == "processing" {
           DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.getUntilFinished(id, completion, count + 1)
           }
