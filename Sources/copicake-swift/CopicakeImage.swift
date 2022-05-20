@@ -11,7 +11,7 @@ import Alamofire
 public class CopicakeImage {
   private var apiKey = ""
 
-  init(_ apiKey: String) {
+  public init(_ apiKey: String) {
     self.apiKey = apiKey
   }
 
@@ -22,7 +22,7 @@ public class CopicakeImage {
     ]
   }
 
-  func create(_ parameters: Parameters, _ completion: @escaping (String?, Rendering?) -> Void) -> Void {
+  public func create(_ parameters: Parameters, _ completion: @escaping (String?, Rendering?) -> Void) -> Void {
     let url = "\(COPICAKE_API_SERVER_IMAGE)/create"
 
     AF.request(
@@ -45,7 +45,7 @@ public class CopicakeImage {
     }
   }
 
-  func get(_ id: String, _ completion: @escaping (String?, Rendering?) -> Void) -> Void {
+  public func get(_ id: String, _ completion: @escaping (String?, Rendering?) -> Void) -> Void {
     let url = "\(COPICAKE_API_SERVER_IMAGE)/get?id=\(id)"
 
     AF.request(
@@ -68,7 +68,7 @@ public class CopicakeImage {
     }
   }
 
-  func getUntilFinished(_ id: String, _ completion: @escaping (String?, Rendering?) -> Void, _ count: Int = 0) -> Void {
+  public func getUntilFinished(_ id: String, _ completion: @escaping (String?, Rendering?) -> Void, _ count: Int = 0) -> Void {
     if count > COPICAKE_MAX_API_RETRY {
       completion("Exceeded MAX_API_RETRY", nil)
     }

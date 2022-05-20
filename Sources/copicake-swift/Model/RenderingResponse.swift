@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RenderingResponse: Codable {
+public struct RenderingResponse: Codable {
   let error: String?
   let data: Rendering
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Options: Codable {
+public struct Options: Codable {
   let webhook_url: String?
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Changes: Codable {
+public struct Changes: Codable {
   let name: String
   let text: String?
   let src: String?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Rendering: Codable {
+public struct Rendering: Codable {
   let type: String
   let status: String
   let changes: [Changes]
