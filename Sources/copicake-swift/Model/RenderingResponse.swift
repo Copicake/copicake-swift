@@ -8,6 +8,6 @@
 import Foundation
 
 public struct RenderingResponse: Codable {
-  open let error: String?
-  open let data: Rendering
+  public let error: String?
+  public let data: Rendering
 }
