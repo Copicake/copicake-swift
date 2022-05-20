@@ -23,7 +23,7 @@ Once you have your Swift package set up, adding Copicake as a dependency is as e
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Copicake/copicake-swift", from: "0.0.1")
+    .package(url: "https://github.com/Copicake/copicake-swift", from: "0.0.6")
 ]
 ```
 
@@ -32,6 +32,8 @@ dependencies: [
 ## Initialization
 
 ```swift
+import copicake_swift
+
 let copicake = Copicake(
   CopicakeInitConfig(apiKey: "")
 )
