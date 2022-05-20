@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Changes: Codable {
-  let name: String
-  let text: String?
-  let src: String?
+  open let name: String
+  open let text: String?
+  open let src: String?
 }

@@ -8,13 +8,13 @@
 import Foundation
 
 public struct Rendering: Codable {
-  let type: String
-  let status: String
-  let changes: [Changes]
-  let options: Options?
-  let template_id: String
-  let permanent_url: String
-  let created_by: String
-  let id: String
-  let created_at: String
+  open let type: String
+  open let status: String
+  open let changes: [Changes]
+  open let options: Options?
+  open let template_id: String
+  open let permanent_url: String
+  open let created_by: String
+  open let id: String
+  open let created_at: String
 }

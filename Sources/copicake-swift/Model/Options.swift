@@ -8,5 +8,5 @@
 import Foundation
 
 public struct Options: Codable {
-  let webhook_url: String?
+  open let webhook_url: String?
 }
