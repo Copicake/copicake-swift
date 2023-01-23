@@ -133,7 +133,10 @@ let pngData = bitmap.representation(using: NSBitmapImageRep.FileType.png, proper
 
 copicake.utils.uploadTempImage(pngData!, Extension.png) { error, url in
   if error != nil {
-    // result == https://s3.ap-northeast-1.amazonaws.com/copicake/temp/ak0zixy6rewsh6vaamzi.png
+    debugPrint(error)
+  }
+  else {
+    // url == https://s3.ap-northeast-1.amazonaws.com/copicake/temp/ak0zixy6rewsh6vaamzi.png
     debugPrint(url)
   }
 }
