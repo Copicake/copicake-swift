@@ -35,11 +35,15 @@ dependencies: [
 import copicake_swift
 
 let copicake = Copicake(
-  CopicakeInitConfig(apiKey: "")
+  CopicakeInitConfig(apiKey: "YOUR_API_KEY")
 )
 ```
 
-## Create an Image
+## Image
+
+### Create an Image
+
+#### create(_ parameters: `Parameters`, _ completion: `@escaping (String?, Rendering?) -> Void`) -> `Void`
 
 ```swift
 copicake.image.create([
@@ -68,7 +72,9 @@ copicake.image.create([
 }
 ```
 
-## Get an Image
+### Get an Image
+
+#### get(_ id: `String`, _ completion: `@escaping (String?, Rendering?) -> Void`) -> `Void`
 
 ```swift
 let renderingId = "YOUR_RENDERING_ID";
@@ -83,7 +89,13 @@ copicake.image.get(renderingId) { error, rendering in
 }
 ```
 
-## Get an image (long polling)
+### Get an image (long polling)
+
+#### getUntilFinished(_ id: `String`, _ completion: `@escaping (String?, Rendering?) -> Void`) -> `Void`
+
+Sometimes you may notice that your image is still under processing state, this is because the image is still being processed in the background by our servers.
+
+In this way, we provide this handy method to get the image until the image is ready.
 
 ```swift
 let renderingId = "YOUR_RENDERING_ID";
@@ -99,6 +111,30 @@ copicake.image.getUntilFinished(renderingId) { error, rendering in
     else if rendering?.status == "failed" {
       // do something
     }
+  }
+}
+```
+
+## Utils
+
+### Create a temporary image for later use
+
+#### uploadTempImage(_ image: `Data`,_ ext: `Extension`, \_ completion: `@escaping (String?, String?) -> Void`) -> `Void`
+
+If you don't have a server to host images, we provided a handy way to let you upload a temporary image to our s3 and you can use the returned URL for later use.
+
+P.S. Every temporary image will be removed within 1 day to avoid abuse
+
+```swift
+let nsImage = NSImage(systemSymbolName: "hammer", accessibilityDescription: nil)
+let cgImage = nsImage?.cgImage(forProposedRect: nil, context: nil, hints: nil)
+let bitmap = NSBitmapImageRep(cgImage: cgImage!)
+let pngData = bitmap.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
+
+copicake.utils.uploadTempImage(pngData!, Extension.png) { error, url in
+  if error != nil {
+    // result == https://s3.ap-northeast-1.amazonaws.com/copicake/temp/ak0zixy6rewsh6vaamzi.png
+    debugPrint(url)
   }
 }
 ```

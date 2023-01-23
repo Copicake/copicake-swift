@@ -23,7 +23,7 @@ public class CopicakeImage {
   }
 
   public func create(_ parameters: Parameters, _ completion: @escaping (String?, Rendering?) -> Void) -> Void {
-    let url = "\(COPICAKE_API_SERVER_IMAGE)/create"
+    let url = "\(IMAGE_API_END_POINT)/create"
 
     AF.request(
       url,
@@ -46,7 +46,7 @@ public class CopicakeImage {
   }
 
   public func get(_ id: String, _ completion: @escaping (String?, Rendering?) -> Void) -> Void {
-    let url = "\(COPICAKE_API_SERVER_IMAGE)/get?id=\(id)"
+    let url = "\(IMAGE_API_END_POINT)/get?id=\(id)"
 
     AF.request(
       url,

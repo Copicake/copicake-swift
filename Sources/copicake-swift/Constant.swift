@@ -7,6 +7,10 @@
 
 import Foundation
 
-let COPICAKE_API_SERVER = "https://api.copicake.com/v1"
-let COPICAKE_API_SERVER_IMAGE = "\(COPICAKE_API_SERVER)/image"
+let API_END_POINT = "https://api.copicake.com"
+
+let UPLOAD_TEMP_IMAGE_API_END_POINT = "\(API_END_POINT)/v1/utils/upload-temp-image"
+
+let IMAGE_API_END_POINT = "\(API_END_POINT)/v1/image"
+
 let COPICAKE_MAX_API_RETRY = 5
